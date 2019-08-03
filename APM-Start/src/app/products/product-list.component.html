@@ -1,0 +1,56 @@
+<div class="card">
+  <div class="card-header">{{ pageTitle }} {{ getYear() }}</div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2">
+        Filter By:
+      </div>
+      <div class="col-md-4">
+        <input type="text" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Filtered by:</h4>
+      </div>
+    </div>
+    <div class="table-responsive">
+      <table class="table" *ngIf="products && products.length">
+        <thead>
+          <tr>
+            <th>
+              <button class="btn btn-primary">
+                Show Image
+              </button>
+            </th>
+            <th>
+              Product
+            </th>
+            <th>
+              Code
+            </th>
+            <th>
+              Available
+            </th>
+            <th>
+              Price
+            </th>
+            <th>
+              5 Star Rating
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let apple of products">
+            <td>image</td>
+            <td>{{ apple.productName }}</td>
+            <td>{{ apple.productCode }}</td>
+            <td>{{ apple.releaseDate }}</td>
+            <td>$ {{ apple.price }}</td>
+            <td>{{ apple.starRating }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
