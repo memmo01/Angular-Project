@@ -2,13 +2,10 @@ import { Component } from "@angular/core";
 
 @Component({
   selector: "pm-root",
-  template: `
-    <div class="contain">
-      <pm-products></pm-products>
-    </div>
-  `,
+  templateUrl: "./app.component.html",
   styleUrls: ["./app.component.css"]
 })
 export class AppComponent {
-  pageTitle: string = "This is the title";
+  title: string = "America";
+  happy: string = "for us";
 }
