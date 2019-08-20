@@ -56,7 +56,7 @@
                 | convertToSpaces: '-' }}</td>
             <td>{{ apple.releaseDate }}</td>
             <td>$ {{ apple.price }}</td>
-            <td>{{ apple.starRating }}</td>
+            <td><pm-star [rating]="apple.starRating"></pm-star></td>
           </tr>
         </tbody>
       </table>
