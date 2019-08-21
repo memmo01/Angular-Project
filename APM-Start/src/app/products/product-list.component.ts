@@ -22,6 +22,8 @@ export class ProductListComponent implements OnInit {
   filteredProducts: IProduct[];
 
   _listFilter: string;
+
+
   get listFilter(): string {
     return this._listFilter;
   }
@@ -30,12 +32,6 @@ export class ProductListComponent implements OnInit {
     this.filteredProducts = this.listFilter
       ? this.performFilter(this.listFilter)
       : this.products;
-  }
-
-  getYear() {
-    let y = new Date();
-    let o = y.getFullYear();
-    return o;
   }
 
   ngOnInit(): void {
