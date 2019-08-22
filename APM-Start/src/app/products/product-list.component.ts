@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import example from "../../api/products/products.json";
 import { IProduct } from "./product";
 import { ValueConverter } from "@angular/compiler/src/render3/view/template";
 import { ProductService } from "./product.service.js";
@@ -13,7 +12,7 @@ export class ProductListComponent implements OnInit {
   show: boolean = false;
   imageWidth: number = 50;
   imageMargin: number = 2;
-
+errorMessage:string;
   pageTitle: string =
     "This is the new page title. I can make it whatever I want by changing it in the class object on the product-list component";
 
@@ -35,8 +34,13 @@ export class ProductListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.products = this.productService.getProducts();
-    this.filteredProducts = this.products;
+    this.productService.getProducts().subscribe({
+      next: products=>{ this.products=products
+        this.filteredProducts = this.products
+    },
+      error: err =>this.errorMessage=err
+    });
+    
   }
 
   toggleEvent() {
